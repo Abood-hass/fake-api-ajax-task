@@ -24,17 +24,18 @@ function showHideForm() {
     showed = !showed
 }
 
-function callAjaxData() {
+function callAjaxData(ind) {
     const req = new XMLHttpRequest();
     req.open("GET", "https://jsonplaceholder.typicode.com/posts");
     req.send();
     req.onreadystatechange = function () {
         const res = JSON.parse(req.responseText)
-        console.log(res);
+        // console.log(res);
         if (this.readyState == 4 && this.status == 200) {
-            for (let index = 1; index < 4; index++) {
-                document.getElementById("ajaxHeader" + index).innerText = res[index]["title"];
-                document.getElementById("ajaxBody" + index).innerText = res[index]["body"];
+            for (let index = ind; index < 4; index++) {
+                document.getElementById("ajaxHeader" + index % 3).innerText = res[index]["title"];
+                document.getElementById("ajaxBody" + index % 3).innerText = res[index]["body"];
+                console.log(res[index]["title"]);
             }
 
         }
@@ -43,23 +44,33 @@ function callAjaxData() {
 }
 
 function addPost() {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-            title: document.getElementById("inputHeader").value,
-            body: document.getElementById("inputBody").value,
-            userId: 1,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((response) => response.json())
-        .then((json) => { console.log(json); alert("Done") })
-        .catch(_ => alert("something wrong"));
+    const header = document.getElementById("inputHeader").value
+    const body = document.getElementById("inputBody").value
+    if (header && body) {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                title: header,
+                body: body,
+                userId: 1,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => { console.log(json); alert("Done") })
+            .catch(_ => alert("something wrong"));
+    } else {
+        alert("your inputs empty");
+    }
 }
 
 addBtn.onclick = _ => { showHideForm() }
 submitBtn.onclick = _ => { showHideForm(); addPost(); }
 cancelBtn.onclick = _ => { showHideForm() }
-callAjaxData()
+
+document.getElementById("more").onclick = _ => {
+    callAjaxData(4)
+}
+callAjaxData(1)
