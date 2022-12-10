@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Inter Regular";
+    src: url('assest/fonts/Inter-Regular.ttf');
+}
+
+html {
+    user-select: none;
+    background-color: #f9fafc;
+}
+
+.mainDiv {
+    font-family: "Inter Regular";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.mainDiv>h2 {
+    color: #e1e8f0;
+    font-size: 72px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+.mainDiv>div {
+    background-color: white;
+    padding: 5px 15px;
+    margin: 10px 0px;
+    display: inline;
+    max-width: 500px;
+    width: 500px;
+}
+
+.mainDiv>div>p {
+    display: block;
+    word-wrap: break-word;
+    font-size: 16px;
+}
+
+span {
+    cursor: pointer;
+}
+
+#addBtnCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+#addNew {
+    display: none;
+}
+
+#addForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+input,
+textarea {
+    outline: none;
+    border: 1px solid darkgrey;
+    width: 400px;
+    height: 30px;
+    padding: 0px 10px;
+}
+
+textarea {
+    height: 200px;
+    padding: 10px;
+    resize: none;
+}

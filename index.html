@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="mainDiv" id="mainDiv">
+        <h2>Daily Todo</h2>
+
+        <div>
+            <h4 id="ajaxHeader1">Loading...</h4>
+            <p id="ajaxBody1">Loading...</p>
+        </div>
+        <div>
+            <h4 id="ajaxHeader2">Loading...</h4>
+            <p id="ajaxBody2">Loading...</p>
+        </div>
+        <div>
+            <h4 id="ajaxHeader3">Loading...</h4>
+            <p id="ajaxBody3">Loading...</p>
+        </div>
+        <div id="addNew">
+
+            <h4 id="headerForm">Add New Post</h4>
+            <form id="addForm" action="">
+                <input type="text" placeholder="Type the header" id="inputHeader" />
+                <textarea name="" cols="30" rows="10" placeholder="Type the Body" id="inputBody"></textarea>
+
+            </form>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px;">
+                <span id="submitBtn" class="material-symbols-outlined">
+                    add_task
+                </span>
+                <span id="cancelBtn" class="material-symbols-outlined">
+                    cancel
+                </span>
+            </div>
+        </div>
+        <div id="addBtnCont">
+            <span id="addBtn" class="material-symbols-outlined">
+                add_circle
+            </span>
+        </div>
+
+    </div>
+</body>
+<script src="index.js" type="application/javascript"></script>
+
+</html>
