@@ -24,7 +24,7 @@ function showHideForm() {
     showed = !showed
 }
 
-function callAjaxData(ind) {
+function callAjaxData() {
     const req = new XMLHttpRequest();
     req.open("GET", "https://jsonplaceholder.typicode.com/posts");
     req.send();
@@ -32,9 +32,9 @@ function callAjaxData(ind) {
         const res = JSON.parse(req.responseText)
         // console.log(res);
         if (this.readyState == 4 && this.status == 200) {
-            for (let index = ind; index < 4; index++) {
-                document.getElementById("ajaxHeader" + index % 3).innerText = res[index]["title"];
-                document.getElementById("ajaxBody" + index % 3).innerText = res[index]["body"];
+            for (let index = 1; index < 4; index++) {
+                document.getElementById("ajaxHeader" + index).innerText = res[index]["title"];
+                document.getElementById("ajaxBody" + index).innerText = res[index]["body"];
                 console.log(res[index]["title"]);
             }
 
@@ -69,8 +69,4 @@ function addPost() {
 addBtn.onclick = _ => { showHideForm() }
 submitBtn.onclick = _ => { showHideForm(); addPost(); }
 cancelBtn.onclick = _ => { showHideForm() }
-
-document.getElementById("more").onclick = _ => {
-    callAjaxData(4)
-}
-callAjaxData(1)
+callAjaxData()
